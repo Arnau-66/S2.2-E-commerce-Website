@@ -88,8 +88,17 @@ const buy = (id) => {
         cart.push(productToAdd);
     }
     console.log(cart);
-
 }
+    document.addEventListener('DOMContentLoaded', () => {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+    addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const id = parseInt(button.getAttribute('data-product-id'));
+                buy(id);
+            });
+        });
+    });
 
 // Exercise 2
 const cleanCart = () =>  {
