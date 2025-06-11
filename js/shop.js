@@ -87,6 +87,7 @@ const buy = (id) => {
         const productToAdd = { ...product, quantity: 1};
         cart.push(productToAdd);
     }
+    console.log(cart);
 
 }
 
