@@ -77,8 +77,17 @@ const total = 0;
 
 // Exercise 1
 const buy = (id) => {
-    // 1. Loop for to the array products to get the item to add to cart
-    // 2. Add found product to the cart array
+
+    const product = products.find(item => item.id === id);
+    const cartItem = cart.find(item => item.id === id);
+
+    if (cartItem) {
+        cartItem.quantity++;
+    } else {
+        const productToAdd = { ...product, quantity: 1};
+        cart.push(productToAdd);
+    }
+
 }
 
 // Exercise 2
