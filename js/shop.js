@@ -89,12 +89,12 @@ const buy = (id) => {
     }
     console.log(cart);
 }
-    document.addEventListener('DOMContentLoaded', () => {
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    document.addEventListener(`DOMContentLoaded`, () => {
+    const addToCartButtons = document.querySelectorAll(`.add-to-cart`);
 
     addToCartButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const id = parseInt(button.getAttribute('data-product-id'));
+            button.addEventListener(`click`, () => {
+                const id = parseInt(button.getAttribute(`data-product-id`));
                 buy(id);
             });
         });
