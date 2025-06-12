@@ -101,9 +101,30 @@ const buy = (id) => {
     });
 
 // Exercise 2
-const cleanCart = () =>  {
+const cleanCart = () => {
+  cart.length = 0; // Vacía el contenido del array sin romper su referencia
+  console.log('Carrito vaciado:', cart);
 
-}
+  // Si ya existe una función que imprime el carrito (como printCart), la puedes llamar aquí
+  // printCart();  // <-- la activaremos en el ejercicio 5
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const addToCartButtons = document.querySelectorAll('.add-to-cart');
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const id = parseInt(button.getAttribute('data-product-id'));
+      buy(id);
+    });
+  });
+
+  // NUEVO: conectar el botón Clean Cart
+  const cleanButton = document.getElementById('clean-cart');
+  if (cleanButton) {
+    cleanButton.addEventListener('click', cleanCart);
+  }
+});
+
 
 // Exercise 3
 const calculateTotal = () =>  {
