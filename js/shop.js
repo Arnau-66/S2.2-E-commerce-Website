@@ -123,7 +123,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Exercise 3
 const calculateTotal = () =>  {
-    // Calculate total price of the cart using the "cartList" array
+
+    let total = 0;
+
+    for (let i = 0; i < cart.length; i++) {
+        total += cart[i].price * cart[i].quantity;
+    }
+
+    console.log('Total del carrito:', total);
+    return total;
 }
 
 // Exercise 4
