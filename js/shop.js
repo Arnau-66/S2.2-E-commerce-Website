@@ -129,7 +129,6 @@ const calculateTotal = () =>  {
     for (let i = 0; i < cart.length; i++) {
         total += cart[i].price * cart[i].quantity;
     }
-
     console.log('Total del carrito:', total);
     return total;
 }
