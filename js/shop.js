@@ -160,9 +160,7 @@ const printCart = () => {
 
   // Imprimir cada producto del carrito
   cart.forEach(product => {
-    const subtotal = product.subtotalWithDiscount !== undefined
-      ? product.subtotalWithDiscount
-      : product.price * product.quantity;
+    const subtotal = product.subtotalWithDiscount !== undefined ? product.subtotalWithDiscount : product.price * product.quantity;
 
     cartList.innerHTML += `
       <li class="list-group-item d-flex justify-content-between align-items-center">
