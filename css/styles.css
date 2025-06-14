@@ -5576,6 +5576,8 @@ textarea.form-control-lg {
 }
 
 .modal-body {
+  max-height: 60vh;
+  overflow-y: auto;
   position: relative;
   flex: 1 1 auto;
   padding: 1rem;

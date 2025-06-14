@@ -193,6 +193,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cleanButton) {
     cleanButton.addEventListener('click', cleanCart);
   }
+  const cartButton = document.querySelector('[data-bs-target="#cartModal"]');
+if (cartButton) {
+  cartButton.addEventListener('click', printCart);
+}
 });
 
 
