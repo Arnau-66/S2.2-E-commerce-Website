@@ -148,6 +148,7 @@ const applyPromotionsCart = () =>  {
 }
 
 // Exercise 5
+
 const printCart = () => {
   const cartList = document.querySelector('.list');
   const totalElement = document.querySelector('.bill');
