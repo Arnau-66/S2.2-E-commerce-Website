@@ -101,8 +101,9 @@ const buy = (id) => {
 
 // Exercise 2
 const cleanCart = () => {
-  cart.length = 0;
-  console.log('Carrito vaciado:', cart);
+    cart.length = 0;
+    printCart();
+    console.log('Carrito vaciado:', cart);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
