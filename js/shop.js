@@ -89,15 +89,7 @@ const buy = (id) => {
     }
     console.log(cart);
 }
-    document.addEventListener(`DOMContentLoaded`, () => {
-    const addToCartButtons = document.querySelectorAll(`.add-to-cart`);
-        addToCartButtons.forEach(button => {
-            button.addEventListener(`click`, () => {
-                const id = parseInt(button.getAttribute(`data-product-id`));
-                buy(id);
-            });
-        });
-    });
+
 
 // Exercise 2
 const cleanCart = () => {
@@ -105,21 +97,6 @@ const cleanCart = () => {
     printCart();
     console.log('Carrito vaciado:', cart);
 };
-
-document.addEventListener('DOMContentLoaded', () => {
-  const addToCartButtons = document.querySelectorAll('.add-to-cart');
-  addToCartButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const id = parseInt(button.getAttribute('data-product-id'));
-      buy(id);
-    });
-  });
-
-  const cleanButton = document.getElementById('clean-cart');
-  if (cleanButton) {
-    cleanButton.addEventListener('click', cleanCart);
-  }
-});
 
 
 // Exercise 3
@@ -154,15 +131,13 @@ const printCart = () => {
   const cartList = document.querySelector('.list');
   const totalElement = document.querySelector('.bill');
 
-  // Limpiar contenido anterior
   cartList.innerHTML = '';
-
-  // Asegurar que se aplican las promociones
   applyPromotionsCart();
 
-  // Imprimir cada producto del carrito
   cart.forEach(product => {
-    const subtotal = product.subtotalWithDiscount !== undefined ? product.subtotalWithDiscount : product.price * product.quantity;
+    const subtotal = product.subtotalWithDiscount !== undefined
+      ? product.subtotalWithDiscount
+      : product.price * product.quantity;
 
     cartList.innerHTML += `
       <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -172,16 +147,6 @@ const printCart = () => {
       </li>
     `;
   });
-
-  // Calcular total global
-  let total = 0;
-  cart.forEach(product => {
-    const subtotal = product.subtotalWithDiscount !== undefined ? product.subtotalWithDiscount : product.price * product.quantity;
-    total += subtotal;
-  });
-
-  // Mostrar total
-  totalElement.textContent = `Total: $${total.toFixed(2)}`;
 };
 
 
@@ -196,3 +161,18 @@ const removeFromCart = (id) => {
 const open_modal = () =>  {
     printCart();
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const addToCartButtons = document.querySelectorAll('.add-to-cart');
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const id = parseInt(button.getAttribute('data-product-id'));
+      buy(id);
+    });
+  });
+
+  const cleanButton = document.getElementById('clean-cart');
+  if (cleanButton) {
+    cleanButton.addEventListener('click', cleanCart);
+  }
+});
