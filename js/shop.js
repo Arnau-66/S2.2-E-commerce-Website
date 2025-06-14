@@ -130,26 +130,42 @@ const applyPromotionsCart = () =>  {
 // Exercise 5
 
 const printCart = () => {
-  const cartList = document.querySelector('.list');
-  const totalElement = document.querySelector('.bill');
+  const cartList = document.getElementById('cart_list');
+  const totalElement = document.getElementById('total_price');
 
+  if (!cartList || !totalElement) return;
+
+  // Limpiar contenido anterior del tbody
   cartList.innerHTML = '';
+
+  // Aplicar promociones si corresponde
   applyPromotionsCart();
 
+  // Acumulador del total final
+  let total = 0;
+
+  // Generar una fila para cada producto del carrito
   cart.forEach(product => {
     const subtotal = product.subtotalWithDiscount !== undefined
       ? product.subtotalWithDiscount
       : product.price * product.quantity;
 
+    total += subtotal;
+
     cartList.innerHTML += `
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span class="fw-bold">${product.name}</span>
-        <span>$${product.price.toFixed(2)} x ${product.quantity}</span>
-        <span class="fw-semibold">$${subtotal.toFixed(2)}</span>
-      </li>
+      <tr>
+        <td>${product.name}</td>
+        <td>$${product.price.toFixed(2)}</td>
+        <td>${product.quantity}</td>
+        <td>$${subtotal.toFixed(2)}</td>
+      </tr>
     `;
   });
+
+  // Mostrar el total final
+  totalElement.textContent = total.toFixed(2);
 };
+
 
 
 
