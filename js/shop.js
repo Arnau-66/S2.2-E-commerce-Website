@@ -149,8 +149,43 @@ const applyPromotionsCart = () =>  {
 
 // Exercise 5
 const printCart = () => {
-    // Fill the shopping cart modal manipulating the shopping cart dom
-}
+  const cartList = document.querySelector('.list');
+  const totalElement = document.querySelector('.bill');
+
+  // Limpiar contenido anterior
+  cartList.innerHTML = '';
+
+  // Asegurar que se aplican las promociones
+  applyPromotionsCart();
+
+  // Imprimir cada producto del carrito
+  cart.forEach(product => {
+    const subtotal = product.subtotalWithDiscount !== undefined
+      ? product.subtotalWithDiscount
+      : product.price * product.quantity;
+
+    cartList.innerHTML += `
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span class="fw-bold">${product.name}</span>
+        <span>$${product.price.toFixed(2)} x ${product.quantity}</span>
+        <span class="fw-semibold">$${subtotal.toFixed(2)}</span>
+      </li>
+    `;
+  });
+
+  // Calcular total global
+  let total = 0;
+  cart.forEach(product => {
+    const subtotal = product.subtotalWithDiscount !== undefined
+      ? product.subtotalWithDiscount
+      : product.price * product.quantity;
+    total += subtotal;
+  });
+
+  // Mostrar total
+  totalElement.textContent = `Total: $${total.toFixed(2)}`;
+};
+
 
 
 // ** Nivell II **
