@@ -88,6 +88,7 @@ const buy = (id) => {
         cart.push(productToAdd);
     }
     console.log(cart);
+    updateCartCount();
 }
 
 
@@ -96,6 +97,7 @@ const cleanCart = () => {
     cart.length = 0;
     printCart();
     console.log('Carrito vaciado:', cart);
+    updateCartCount();
 };
 
 
