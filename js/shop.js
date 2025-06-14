@@ -174,9 +174,7 @@ const printCart = () => {
   // Calcular total global
   let total = 0;
   cart.forEach(product => {
-    const subtotal = product.subtotalWithDiscount !== undefined
-      ? product.subtotalWithDiscount
-      : product.price * product.quantity;
+    const subtotal = product.subtotalWithDiscount !== undefined ? product.subtotalWithDiscount : product.price * product.quantity;
     total += subtotal;
   });
 
