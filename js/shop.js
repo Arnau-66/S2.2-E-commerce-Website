@@ -136,16 +136,12 @@ const calculateTotal = () =>  {
 // Exercise 4
 const applyPromotionsCart = () =>  {
   cart.forEach(product => {
-    // Quitar promociones anteriores si las hubiera
+
     delete product.subtotalWithDiscount;
 
-    // Promoción 1: Cooking oil (id 1), 3 unidades o más → 20% de descuento
     if (product.id === 1 && product.quantity >= 3) {
       product.subtotalWithDiscount = product.price * product.quantity * 0.8;
-    }
-
-    // Promoción 2: Cupcake mixture (id 3), 10 unidades o más → 30% de descuento
-    else if (product.id === 3 && product.quantity >= 10) {
+    } else if (product.id === 3 && product.quantity >= 10) {
       product.subtotalWithDiscount = product.price * product.quantity * 0.7;
     }
   });
