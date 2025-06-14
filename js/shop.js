@@ -176,3 +176,12 @@ document.addEventListener('DOMContentLoaded', () => {
     cleanButton.addEventListener('click', cleanCart);
   }
 });
+
+
+const updateCartCount = () => {
+  const countElement = document.getElementById('count_product');
+  if (countElement) {
+    const totalCount = cart.reduce((acc, product) => acc + product.quantity, 0);
+    countElement.textContent = totalCount;
+  }
+};
