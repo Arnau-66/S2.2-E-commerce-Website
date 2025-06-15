@@ -35,14 +35,14 @@ const products = [
         name: 'All-in-one',
         price: 260,
         type: 'beauty',
-        img: 'images/All-in-one.png',
+        img: 'images/All-in-1.png',
     },
     {
         id: 5,
         name: 'Zero Make-up Kit',
         price: 20.5,
         type: 'beauty',
-        img: 'images/Zero Make-up Kit.png',
+        img: 'images/Zero makeup kit.png',
     },
     {
         id: 6,
