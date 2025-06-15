@@ -91,7 +91,6 @@ const buy = (id) => {
     updateCartCount();
 }
 
-
 // Exercise 2
 const cleanCart = () => {
     cart.length = 0;
