@@ -4507,6 +4507,12 @@ textarea.form-control-lg {
   color: #fff;
 }
 
+.cart-thumbnail {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
 .card {
   position: relative;
   display: flex;
