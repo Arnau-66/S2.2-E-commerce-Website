@@ -76,6 +76,7 @@
   }
 }
 
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -90,8 +91,34 @@ body {
 }
 
 .hero-logo {
-  max-width: 600px;
   height: auto;
+}
+
+.desktop-logo,
+.mobile-logo {
+  display: block;
+  margin: 0 auto;
+  max-width: 60%;
+  height: auto;
+}
+
+.desktop-logo {
+  display: block;
+}
+
+.mobile-logo {
+  display: none;
+}
+
+
+@media (max-width: 767px) {
+  .desktop-logo {
+    display: none;
+  }
+
+  .mobile-logo {
+    display: block;
+  }
 }
 
 hr {
