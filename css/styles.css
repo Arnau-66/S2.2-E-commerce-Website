@@ -89,6 +89,11 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+.hero-logo {
+  max-width: 600px;
+  height: auto;
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -9809,6 +9814,7 @@ textarea.form-control-lg {
   }
 
   .py-lg-0 {
+    margin: 20px 0;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
   }
