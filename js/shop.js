@@ -133,16 +133,12 @@ const printCart = () => {
 
   if (!cartList || !totalElement) return;
 
-  // Limpiar contenido anterior del tbody
   cartList.innerHTML = '';
 
-  // Aplicar promociones si corresponde
   applyPromotionsCart();
 
-  // Acumulador del total final
   let total = 0;
 
-  // Generar una fila para cada producto del carrito
   cart.forEach(product => {
     const subtotal = product.subtotalWithDiscount !== undefined
       ? product.subtotalWithDiscount
@@ -160,7 +156,6 @@ const printCart = () => {
     `;
   });
 
-  // Mostrar el total final
   totalElement.textContent = total.toFixed(2);
 };
 
@@ -179,12 +174,12 @@ const removeFromCart = (id) => {
     if (product.quantity > 1) {
       product.quantity--;
       } else {
-          cart.splice(productIndex, 1); // eliminar producto si quantity = 1
+          cart.splice(productIndex, 1); 
         }
 
-    applyPromotionsCart(); // volver a aplicar descuentos si toca
-    printCart();           // volver a pintar el carrito
-    updateCartCount();     // actualizar número junto al icono
+    applyPromotionsCart(); 
+    printCart();  
+    updateCartCount();
   }
 };
 
@@ -206,10 +201,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cleanButton) {
     cleanButton.addEventListener('click', cleanCart);
   }
+
   const cartButton = document.querySelector('[data-bs-target="#cartModal"]');
-if (cartButton) {
-  cartButton.addEventListener('click', printCart);
-}
+  if (cartButton) {
+    cartButton.addEventListener('click', printCart);
+  }
 });
 
 
