@@ -172,8 +172,23 @@ const printCart = () => {
 
 // Exercise 7
 const removeFromCart = (id) => {
+  const productIndex = cart.findIndex(item => item.id === id);
 
-}
+  if (productIndex !== -1) {
+    const product = cart[productIndex];
+
+    if (product.quantity > 1) {
+      product.quantity--;
+    } else {
+      cart.splice(productIndex, 1); // eliminar producto si quantity = 1
+    }
+
+    applyPromotionsCart(); // volver a aplicar descuentos si toca
+    printCart();           // volver a pintar el carrito
+    updateCartCount();     // actualizar número junto al icono
+  }
+};
+
 
 const open_modal = () =>  {
     printCart();
