@@ -115,13 +115,12 @@ const calculateTotal = () =>  {
 
 // Exercise 4
 const applyPromotionsCart = () =>  {
-  cart.forEach(product => {
-
+    cart.forEach(product => { 
     delete product.subtotalWithDiscount;
-
     if (product.id === 1 && product.quantity >= 3) {
       product.subtotalWithDiscount = product.price * product.quantity * 0.8;
-    } else if (product.id === 3 && product.quantity >= 10) {
+    } 
+    else if (product.id === 3 && product.quantity >= 10) {
       product.subtotalWithDiscount = product.price * product.quantity * 0.7;
     }
   });
