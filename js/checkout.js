@@ -1,28 +1,93 @@
 
 // Exercise 6
-const validate = () => {
-	let error = 0;
-	// Get the input fields
-	const fName = document.getElementById("fName");
-	const fEmail = document.getElementById("fEmail");
+function validate() {
+  let valid = true;
 
-	// Get the error elements
-	const errorName = document.getElementById("errorName");
-	const errorEmail = document.getElementById("errorEmail");  
-	
-	// Validate fields entered by the user: name, phone, password, and email
-	if(fName.value.trim() == ""){
-		error++;
-	}
+  let fName = document.getElementById("fName");
+  let fLastN = document.getElementById("fLastN");
+  let fEmail = document.getElementById("fEmail");
+  let fPassword = document.getElementById("fPassword");
+  let fPhone = document.getElementById("fPhone");
+  let fAddress = document.getElementById("fAddress");
 
-	if(fEmail.value == ""){
-		error++;
-	}
-	 
-	if(error>0){
-		alert("Please fill in all required fields.");
-	}else{
-		alert("Form submitted successfully");
-	}
+  let errorName = document.getElementById("errorName");
+  let errorLastN = document.getElementById("errorLastN");
+  let errorEmail = document.getElementById("errorEmail");
+  let errorPassword = document.getElementById("errorPassword");
+  let errorPhone = document.getElementById("errorPhone");
+  let errorAddress = document.getElementById("errorAddress");
 
+  let nameRegex = /^[a-zA-Z\s]{3,}$/;
+  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,8}$/;
+  let phoneRegex = /^\d{9}$/;
+
+  // First name
+  if (!nameRegex.test(fName.value.trim())) {
+    errorName.textContent = "Please enter at least 3 letters";
+    fName.classList.add("is-invalid");
+    valid = false;
+  } else {
+    fName.classList.remove("is-invalid");
+    fName.classList.add("is-valid");
+    errorName.textContent = "";
+  }
+
+  // Last name
+  if (!nameRegex.test(fLastN.value.trim())) {
+    errorLastN.textContent = "Please enter at least 3 letters";
+    fLastN.classList.add("is-invalid");
+    valid = false;
+  } else {
+    fLastN.classList.remove("is-invalid");
+    fLastN.classList.add("is-valid");
+    errorLastN.textContent = "";
+  }
+
+  // Email
+  if (!emailRegex.test(fEmail.value.trim())) {
+    errorEmail.textContent = "Please enter a valid email address";
+    fEmail.classList.add("is-invalid");
+    valid = false;
+  } else {
+    fEmail.classList.remove("is-invalid");
+    fEmail.classList.add("is-valid");
+    errorEmail.textContent = "";
+  }
+
+  // Password
+  if (!passwordRegex.test(fPassword.value.trim())) {
+    errorPassword.textContent = "Password must include at least one letter and one number (4-8 characters)";
+    fPassword.classList.add("is-invalid");
+    valid = false;
+  } else {
+    fPassword.classList.remove("is-invalid");
+    fPassword.classList.add("is-valid");
+    errorPassword.textContent = "";
+  }
+
+  // Phone
+  if (!phoneRegex.test(fPhone.value.trim())) {
+    errorPhone.textContent = "Phone must contain exactly 9 digits";
+    fPhone.classList.add("is-invalid");
+    valid = false;
+  } else {
+    fPhone.classList.remove("is-invalid");
+    fPhone.classList.add("is-valid");
+    errorPhone.textContent = "";
+  }
+
+  // Address
+  if (fAddress.value.trim().length < 3) {
+    errorAddress.textContent = "Address must be at least 3 characters long";
+    fAddress.classList.add("is-invalid");
+    valid = false;
+  } else {
+    fAddress.classList.remove("is-invalid");
+    fAddress.classList.add("is-valid");
+    errorAddress.textContent = "";
+  }
+
+  return valid;
 }
+
