@@ -157,6 +157,7 @@ const printCart = () => {
 
     cartList.innerHTML += `
       <tr>
+        <td><img src="${product.img}" alt="${product.name}" class="cart-thumbnail" /></td>
         <td>${product.name}</td>
         <td>$${product.price.toFixed(2)}</td>
         <td>${product.quantity}</td>
