@@ -116,14 +116,13 @@ const calculateTotal = () =>  {
 // Exercise 4
 const applyPromotionsCart = () =>  {
     cart.forEach(product => { 
-    delete product.subtotalWithDiscount;
-    if (product.id === 1 && product.quantity >= 3) {
-      product.subtotalWithDiscount = product.price * product.quantity * 0.8;
-    } 
-    else if (product.id === 3 && product.quantity >= 10) {
-      product.subtotalWithDiscount = product.price * product.quantity * 0.7;
-    }
-  });
+      delete product.subtotalWithDiscount;
+        if (product.id === 1 && product.quantity >= 3) {
+            product.subtotalWithDiscount = product.price * product.quantity * 0.8;
+          } else if (product.id === 3 && product.quantity >= 10) {
+              product.subtotalWithDiscount = product.price * product.quantity * 0.7;
+            }
+      });
 }
 
 // Exercise 5
@@ -179,9 +178,9 @@ const removeFromCart = (id) => {
 
     if (product.quantity > 1) {
       product.quantity--;
-    } else {
-      cart.splice(productIndex, 1); // eliminar producto si quantity = 1
-    }
+      } else {
+          cart.splice(productIndex, 1); // eliminar producto si quantity = 1
+        }
 
     applyPromotionsCart(); // volver a aplicar descuentos si toca
     printCart();           // volver a pintar el carrito
