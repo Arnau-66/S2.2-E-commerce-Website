@@ -1,5 +1,4 @@
 
-// Exercise 6
 function validate() {
 		
 	let valid = true;
@@ -23,7 +22,6 @@ function validate() {
 	let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,8}$/;
 	let phoneRegex = /^\d{9}$/;
 
-	// First name
 	if (!nameRegex.test(fName.value.trim())) {
 		errorName.textContent = "Please enter at least 3 letters";
 		fName.classList.add("is-invalid");
@@ -34,7 +32,6 @@ function validate() {
 		errorName.textContent = "";
 	}
 
-	// Last name
 	if (!nameRegex.test(fLastN.value.trim())) {
 		errorLastN.textContent = "Please enter at least 3 letters";
 		fLastN.classList.add("is-invalid");
@@ -45,7 +42,6 @@ function validate() {
 		errorLastN.textContent = "";
 	}
 
-	// Email
 	if (!emailRegex.test(fEmail.value.trim())) {
 		errorEmail.textContent = "Please enter a valid email address";
 		fEmail.classList.add("is-invalid");
@@ -56,7 +52,6 @@ function validate() {
 		errorEmail.textContent = "";
 	}
 
-	// Password
 	if (!passwordRegex.test(fPassword.value.trim())) {
 		errorPassword.textContent = "Password must include at least one letter and one number (4-8 characters)";
 		fPassword.classList.add("is-invalid");
@@ -67,7 +62,6 @@ function validate() {
 		errorPassword.textContent = "";
 	}
 
-	// Phone
 	if (!phoneRegex.test(fPhone.value.trim())) {
 		errorPhone.textContent = "Phone must contain exactly 9 digits";
 		fPhone.classList.add("is-invalid");
@@ -78,7 +72,6 @@ function validate() {
 		errorPhone.textContent = "";
 	}
 
-	// Address
 	if (fAddress.value.trim().length < 3) {
 		errorAddress.textContent = "Address must be at least 3 characters long";
 		fAddress.classList.add("is-invalid");
