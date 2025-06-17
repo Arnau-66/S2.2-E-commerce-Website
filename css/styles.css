@@ -110,6 +110,15 @@ body {
   display: none;
 }
 
+.white-nowrap {
+  white-space: nowrap;
+}
+
+.align-right {
+  text-align: right;
+  white-space: nowrap;
+  padding-right: 1.5rem;
+}
 
 @media (max-width: 767px) {
   .desktop-logo {

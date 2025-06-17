@@ -76,7 +76,7 @@ const printCart = () => {
           <td>$${product.price.toFixed(2)}</td>
           <td>
             ${product.quantity}
-            <button class="btn btn-sm btn-danger ms-2 remove-item" data-id="${product.id}">Remove</button>
+            <button class="btn btn-sm btn-danger ms-2 remove-item" data-id="${product.id}">X</button>
           </td>
           <td>$${subtotal.toFixed(2)}</td>
         </tr>
