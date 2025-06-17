@@ -77,8 +77,8 @@ const printCart = () => {
           <td>
              <div class="d-flex justify-content-between align-items-center">
               <span>${product.quantity}</span>
-              <button class=" add-one btn btn-outline-secondary btn-sm" data-id="${product.id}">+</button>
-              <button class="remove-item btn btn-outline-secondary btn-sm" data-id="${product.id}">-</button>
+              <button class=" add-one btn btn-outline-secondary btn-tight" data-id="${product.id}">+</button>
+              <button class="remove-item btn btn-outline-secondary btn-tight" data-id="${product.id}">-</button>
             </div>
           </td>
           <td>$${subtotal.toFixed(2)}</td>

@@ -379,6 +379,19 @@ button {
   border-radius: 0;
 }
 
+.btn-tight {
+  padding: 0.1rem 0.2rem !important;  /* Muy pequeño padding */
+  font-size: 0.6rem !important;       /* Fuente reducida */
+  line-height: 1 !important;
+  min-width: auto !important;
+  width: 1.4rem !important;
+  height: 1.4rem !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 button:focus:not(:focus-visible) {
   outline: 0;
 }
