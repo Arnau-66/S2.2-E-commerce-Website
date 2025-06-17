@@ -109,21 +109,34 @@ function validate() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	
-	setupValidation("fName", "errorName", isValidName, "Please enter at least 3 letters");
-  	setupValidation("fLastN", "errorLastN", isValidName, "Please enter at least 3 letters");
-  	setupValidation("fEmail", "errorEmail", isValidEmail, "Please enter a valid email address");
-  	setupValidation("fPassword", "errorPassword", isValidPassword, "Password must include at least one letter and one number (4-8 characters)");
-  	setupValidation("fPhone", "errorPhone", isValidPhone, "Phone must contain exactly 9 digits");
-  	setupValidation("fAddress", "errorAddress", isValidAddress, "Address must be at least 3 characters long");
-	
-	const form = document.querySelector(".form");
-	if(form){
-		form.addEventListener("submit", (event)=> {
-			if(!validate()) event.preventDefault();
-		});
-	}
+  setupValidation("fName", "errorName", isValidName, "Please enter at least 3 letters");
+  setupValidation("fLastN", "errorLastN", isValidName, "Please enter at least 3 letters");
+  setupValidation("fEmail", "errorEmail", isValidEmail, "Please enter a valid email address");
+  setupValidation("fPassword", "errorPassword", isValidPassword, "Password must include at least one letter and one number (4-8 characters)");
+  setupValidation("fPhone", "errorPhone", isValidPhone, "Phone must contain exactly 9 digits");
+  setupValidation("fAddress", "errorAddress", isValidAddress, "Address must be at least 3 characters long");
 
+  const form = document.querySelector(".form");
+
+  if (form) {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (validate()) {
+        const alert = document.getElementById("successAlert");
+
+        alert.classList.remove("d-none");
+        alert.classList.add("show");
+
+        alert.addEventListener("closed.bs.alert", () => {
+          form.reset();
+          const inputs = form.querySelectorAll("input");
+          inputs.forEach(input => input.classList.remove("is-valid", "is-invalid"));
+        });
+      }
+    });
+  }
 });
+
 
 
