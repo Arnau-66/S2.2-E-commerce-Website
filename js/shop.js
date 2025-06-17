@@ -75,8 +75,11 @@ const printCart = () => {
           <td>${product.name}</td>
           <td>$${product.price.toFixed(2)}</td>
           <td>
-            ${product.quantity}
-            <button class="btn btn-sm btn-danger ms-2 remove-item" data-id="${product.id}">X</button>
+             <div class="d-flex justify-content-between align-items-center">
+              <span>${product.quantity}</span>
+              <button class=" add-one btn btn-outline-secondary" data-id="${product.id}">+</button>
+              <button class="remove-item btn btn-outline-secondary" data-id="${product.id}">-</button>
+            </div>
           </td>
           <td>$${subtotal.toFixed(2)}</td>
         </tr>
@@ -90,6 +93,15 @@ const printCart = () => {
       button.addEventListener('click', () => {
         const id = parseInt(button.getAttribute('data-id'));
         removeFromCart(id);
+      });
+    });
+
+    const addButtons = document.querySelectorAll('.add-one');
+    addButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const id = parseInt(button.getAttribute('data-id'));
+        buy(id);
+        printCart();
       });
     });
 };
