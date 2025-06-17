@@ -69,22 +69,29 @@ const printCart = () => {
 
     total += subtotal;
 
-  cartList.innerHTML += `
-      <tr>
-        <td><img src="${product.img}" alt="${product.name}" class="cart-thumbnail" /></td>
-        <td>${product.name}</td>
-        <td>$${product.price.toFixed(2)}</td>
-        <td>
-          ${product.quantity}
-          <button class="btn btn-sm btn-danger ms-2 remove-item" data-id="${product.id}">Remove</button>
-        </td>
-        <td>$${subtotal.toFixed(2)}</td>
-      </tr>
-    `;
-
+    cartList.innerHTML += `
+        <tr>
+          <td><img src="${product.img}" alt="${product.name}" class="cart-thumbnail" /></td>
+          <td>${product.name}</td>
+          <td>$${product.price.toFixed(2)}</td>
+          <td>
+            ${product.quantity}
+            <button class="btn btn-sm btn-danger ms-2 remove-item" data-id="${product.id}">Remove</button>
+          </td>
+          <td>$${subtotal.toFixed(2)}</td>
+        </tr>
+      `;
   });
 
   totalElement.textContent = total.toFixed(2);
+
+    const removeButtons = document.querySelectorAll('.remove-item');
+    removeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const id = parseInt(button.getAttribute('data-id'));
+        removeFromCart(id);
+      });
+    });
 };
 
 
