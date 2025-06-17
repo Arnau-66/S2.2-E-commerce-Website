@@ -7,6 +7,26 @@ const isValidPhone = (phone) => /^\d{9}$/.test(phone.trim());
 const isValidAddress = (address) => address.trim().length >= 3;
 
 
+function setupValidation(inputId, errorId, validationFunction, errorMessage) {
+  const input = document.getElementById(inputId);
+  const error = document.getElementById(errorId);
+
+  input.addEventListener("blur", () => {
+    const value = input.value.trim();
+    if (!validationFunction(value)) {
+      input.classList.add("is-invalid");
+      input.classList.remove("is-valid");
+      error.textContent = errorMessage;
+    } else {
+      input.classList.remove("is-invalid");
+      input.classList.add("is-valid");
+      error.textContent = "";
+    }
+  });
+}
+
+
+
 function validate() {
 		
 	let valid = true;
@@ -89,6 +109,14 @@ function validate() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+	
+	setupValidation("fName", "errorName", isValidName, "Please enter at least 3 letters");
+  	setupValidation("fLastN", "errorLastN", isValidName, "Please enter at least 3 letters");
+  	setupValidation("fEmail", "errorEmail", isValidEmail, "Please enter a valid email address");
+  	setupValidation("fPassword", "errorPassword", isValidPassword, "Password must include at least one letter and one number (4-8 characters)");
+  	setupValidation("fPhone", "errorPhone", isValidPhone, "Phone must contain exactly 9 digits");
+  	setupValidation("fAddress", "errorAddress", isValidAddress, "Address must be at least 3 characters long");
+	
 	const form = document.querySelector(".form");
 	if(form){
 		form.addEventListener("submit", (event)=> {
