@@ -1,4 +1,12 @@
 
+
+const isValidName = (name) => /^[a-zA-Z\s]{3,}$/.test(name.trim());
+const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+const isValidPassword = (password) => /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,8}$/.test(password.trim());
+const isValidPhone = (phone) => /^\d{9}$/.test(phone.trim());
+const isValidAddress = (address) => address.trim().length >= 3;
+
+
 function validate() {
 		
 	let valid = true;
@@ -17,12 +25,7 @@ function validate() {
 	let errorPhone = document.getElementById("errorPhone");
 	let errorAddress = document.getElementById("errorAddress");
 
-	let nameRegex = /^[a-zA-Z\s]{3,}$/;
-	let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-	let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,8}$/;
-	let phoneRegex = /^\d{9}$/;
-
-	if (!nameRegex.test(fName.value.trim())) {
+	if (!isValidName(fName.value.trim())) {
 		errorName.textContent = "Please enter at least 3 letters";
 		fName.classList.add("is-invalid");
 		valid = false;
@@ -32,7 +35,7 @@ function validate() {
 		errorName.textContent = "";
 	}
 
-	if (!nameRegex.test(fLastN.value.trim())) {
+	if (!isValidName(fLastN.value.trim())) {
 		errorLastN.textContent = "Please enter at least 3 letters";
 		fLastN.classList.add("is-invalid");
 		valid = false;
@@ -42,7 +45,7 @@ function validate() {
 		errorLastN.textContent = "";
 	}
 
-	if (!emailRegex.test(fEmail.value.trim())) {
+	if (!isValidEmail(fEmail.value.trim())) {
 		errorEmail.textContent = "Please enter a valid email address";
 		fEmail.classList.add("is-invalid");
 		valid = false;
@@ -52,7 +55,7 @@ function validate() {
 		errorEmail.textContent = "";
 	}
 
-	if (!passwordRegex.test(fPassword.value.trim())) {
+	if (!isValidPassword(fPassword.value.trim())) {
 		errorPassword.textContent = "Password must include at least one letter and one number (4-8 characters)";
 		fPassword.classList.add("is-invalid");
 		valid = false;
@@ -62,7 +65,7 @@ function validate() {
 		errorPassword.textContent = "";
 	}
 
-	if (!phoneRegex.test(fPhone.value.trim())) {
+	if (!isValidPhone(fPhone.value.trim())) {
 		errorPhone.textContent = "Phone must contain exactly 9 digits";
 		fPhone.classList.add("is-invalid");
 		valid = false;
@@ -72,7 +75,7 @@ function validate() {
 		errorPhone.textContent = "";
 	}
 
-	if (fAddress.value.trim().length < 3) {
+	if (!isValidAddress(fAddress.value)) {
 		errorAddress.textContent = "Address must be at least 3 characters long";
 		fAddress.classList.add("is-invalid");
 		valid = false;
@@ -86,11 +89,13 @@ function validate() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector(".form");
-  form.addEventListener("submit", function (event) {
-    const isValid = validate();
-    if (!isValid) event.preventDefault();
-  });
+	const form = document.querySelector(".form");
+	if(form){
+		form.addEventListener("submit", (event)=> {
+			if(!validate()) event.preventDefault();
+		});
+	}
+
 });
 
 
