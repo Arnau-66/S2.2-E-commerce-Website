@@ -69,15 +69,19 @@ const printCart = () => {
 
     total += subtotal;
 
-    cartList.innerHTML += `
+  cartList.innerHTML += `
       <tr>
         <td><img src="${product.img}" alt="${product.name}" class="cart-thumbnail" /></td>
         <td>${product.name}</td>
         <td>$${product.price.toFixed(2)}</td>
-        <td>${product.quantity}</td>
+        <td>
+          ${product.quantity}
+          <button class="btn btn-sm btn-danger ms-2 remove-item" data-id="${product.id}">Remove</button>
+        </td>
         <td>$${subtotal.toFixed(2)}</td>
       </tr>
     `;
+
   });
 
   totalElement.textContent = total.toFixed(2);
