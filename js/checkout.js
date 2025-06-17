@@ -109,6 +109,7 @@ function validate() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+	
   setupValidation("fName", "errorName", isValidName, "Please enter at least 3 letters");
   setupValidation("fLastN", "errorLastN", isValidName, "Please enter at least 3 letters");
   setupValidation("fEmail", "errorEmail", isValidEmail, "Please enter a valid email address");
@@ -127,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         alert.classList.remove("d-none");
         alert.classList.add("show");
+
 
         alert.addEventListener("closed.bs.alert", () => {
           form.reset();
