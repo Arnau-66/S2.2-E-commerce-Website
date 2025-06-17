@@ -81,7 +81,7 @@ const printCart = () => {
               <button class="remove-item btn btn-outline-secondary btn-tight" data-id="${product.id}">-</button>
             </div>
           </td>
-          <td>$${subtotal.toFixed(2)}</td>
+          <td class="text-end">$${subtotal.toFixed(2)}</td>
         </tr>
       `;
   });
