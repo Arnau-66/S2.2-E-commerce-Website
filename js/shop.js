@@ -1,8 +1,9 @@
 
 import { products } from "./products.js";
+import { createCartItemRow } from "./cartList.js";
+
 
 const cart = [];
-const total = 0;
 
 
 const buy = (id) => {
@@ -27,16 +28,6 @@ const cleanCart = () => {
     updateCartCount();
 };
 
-
-const calculateTotal = () =>  {
-
-    let total = 0;
-
-    for (let i = 0; i < cart.length; i++) {
-        total += cart[i].price * cart[i].quantity;
-    }
-    return total;
-}
 
 const applyPromotionsCart = () =>  {
     cart.forEach(product => { 
@@ -69,21 +60,7 @@ const printCart = () => {
 
     total += subtotal;
 
-    cartList.innerHTML += `
-        <tr>
-          <td><img src="${product.img}" alt="${product.name}" class="cart-thumbnail" /></td>
-          <td>${product.name}</td>
-          <td>$${product.price.toFixed(2)}</td>
-          <td>
-             <div class="d-flex justify-content-between align-items-center">
-              <span>${product.quantity}</span>
-              <button class=" add-one btn btn-outline-secondary btn-tight" data-id="${product.id}">+</button>
-              <button class="remove-item btn btn-outline-secondary btn-tight" data-id="${product.id}">-</button>
-            </div>
-          </td>
-          <td class="text-end">$${subtotal.toFixed(2)}</td>
-        </tr>
-      `;
+    cartList.innerHTML += createCartItemRow(product, subtotal);
   });
 
   totalElement.textContent = total.toFixed(2);
@@ -124,11 +101,6 @@ const removeFromCart = (id) => {
     updateCartCount();
   }
 };
-
-
-const open_modal = () =>  {
-    printCart();
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   const addToCartButtons = document.querySelectorAll('.add-to-cart');
