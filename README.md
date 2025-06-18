@@ -14,6 +14,24 @@ Given an initial codebase, the goal is to complete the missing JavaScript logic 
 - Validate form inputs before submission.
 - Finally, adjust the visual design and layout to create a more professional and polished appearance.
 
+## Main Branch Highlights ✅
+
+The `main` branch contains a polished and fully functional version of the application, with improvements including:
+
+- 🔗 **Navbar functionality**: Links and scroll behavior adjusted to navigate between sections correctly.
+- 🖼️ **Responsive logo**: Adapted to show a different version on desktop and mobile.
+- 🛒 **Shopping cart system**:
+  - `Add to cart` buttons with quantity management.
+  - Modal window displaying cart contents.
+  - **+ / -** buttons for dynamically increasing or decreasing product quantity.
+- 🧩 **Modular JavaScript architecture**:
+  - `products.js` to manage the product catalog independently.
+  - `cartList.js` (or `printCart`) moved into a separate module to isolate DOM rendering logic from core functionality.
+- ✅ **Form validation**:
+  - Validation on **blur** for real-time feedback.
+  - Validation on **submit** with all required fields checked.
+  - Display of **success alert message** when the form is submitted correctly.
+
 ## Branch Structure
 
 The repository is organized as follows:
@@ -32,4 +50,3 @@ The repository is organized as follows:
 ## Author
 
 Arnau Pérez — IT Academy Bootcamp
-
